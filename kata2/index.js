@@ -35,14 +35,10 @@ while (left <= right) {
   let midIdx = Math.floor((left + right) / 2);
   let currentValue = arr[midIdx];
 
-  console.log(`midIdx ${midIdx} currentValue ${currentValue} `);
-  console.log();
-
   if (currentValue < target) {
     left = midIdx + 1;
   } else if (currentValue > target) {
     right = midIdx - 1;
-    console.log(`Set end index on index ${midIdx}`);
   } else {
     console.log(`You have found the target value ${target} on index ${midIdx}`);
     found = true;
@@ -50,7 +46,6 @@ while (left <= right) {
   }
 
   if (midIdx === 0 || midIdx === arr.length - 1) {
-    console.log("edge case");
     break;
   }
 }
@@ -58,3 +53,6 @@ while (left <= right) {
 if (!found) {
   console.log('Number was not found in the array')
 }
+
+// Binary Search Algorithm Implementation #3
+const target = 9;
