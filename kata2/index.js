@@ -55,7 +55,7 @@
 // }
 
 // Binary Search Algorithm Implementation #3
-let iterativeBinarySearch = function (arr, target) {
+function iterativeBinarySearch(arr, target) {
 
   let start = 0, end = arr.length - 1;
 
@@ -68,14 +68,31 @@ let iterativeBinarySearch = function (arr, target) {
     if (arr[mid] < target)
       start = mid + 1;
 
-    else if (arr[mid > target])
+    else if (arr[mid] > target)
       end = mid - 1;
   }
 
   return false
 }
 
-let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-let x = 5;
+module.exports = { iterativeBinarySearch };
 
-console.log(`Is ${x} in the array? ${iterativeBinarySearch(arr, x)}`);
+// Quick Test for Binary Search Implementation
+// function testBinarySearch() {
+//   const testCases = [
+//     {
+//       arr: [1, 2, 3, 4, 5, 6, 7, 8, 9], target: 5, expected: true
+//     },
+//     {
+//       arr: [1, 2, 3, 4, 5, 6, 7, 8, 9], target: 10, expected: false
+//     }
+//   ]
+//
+//   for (let { arr, target, expected} of testCases) {
+//     const result = iterativeBinarySearch(arr, target);
+//     const status = result === expected ? 'Passed' : 'Failed';
+//     console.log(`Test case with target ${target} in array [${arr}] - ${status}`);
+//   }
+// }
+//
+// testBinarySearch();
