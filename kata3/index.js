@@ -17,10 +17,7 @@ console.log("");
 const resicences = 20000;
 
 // Rough Representation of average characters
-let residenceName = 20;
-let residenceAdresses = 15;
-let residenceNumber = 10;
-const averageCharsPerRes = residenceName + residenceAdresses + residenceNumber;
+const averageCharsPerRes = 95;
 
 // Character uses 8 nimary digits (bits) also known as a byte to represent in computer memory
 const averageDigitsPerRes = averageCharsPerRes * 8;
