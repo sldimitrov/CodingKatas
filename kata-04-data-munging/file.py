@@ -34,4 +34,5 @@ for day in computationLines:
         lowestSpreadDay = day[0]
         lowestTempSpread = day[1]
 
-
+# Learning Results:
+# Refreshed knowledge around data types, map, filter, sort, slicing and more methods
