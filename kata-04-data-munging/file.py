@@ -16,18 +16,22 @@ computationLines = []
 for (index, line) in enumerate(lines):
     cutLine = line.strip()
 
-    columnNumber = cutLine[0:2]
+    columnNumber = cutLine[0:2].strip()
     maxTemp = cutLine[3:8]
     minTemp = cutLine[9:14]
 
     try:
         tempSpread = int(maxTemp) - int(minTemp)
-        print("tempSpread", tempSpread)
-
         computationLines.append([columnNumber, tempSpread])
     except:
         print("Invalid input: cannot be converted")
 
-print("computationLines,", computationLines)
+lowestSpreadDay = ""
+lowestTempSpread = 999
+
+for day in computationLines:
+    if day[1] < lowestTempSpread:
+        lowestSpreadDay = day[0]
+        lowestTempSpread = day[1]
 
 
