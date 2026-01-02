@@ -29,6 +29,7 @@ for teamStats in footballTeamsStats:
         continue
 
     try:
+        # TODO: Find a way of writing this a better way
         goalsFor = int(teamStats[6])
         goalsAgainst = int(teamStats[8])
 
@@ -45,3 +46,11 @@ if smallestRangeTeam:
     print(f"{smallestRangeTeam} has the smallest range of {smallestRange}")
 else:
     print("There was an error trying to find the Team with the smallest range")
+
+# Kata Answers:
+
+# Initially, I used some checks which were not so reliable
+# That required some extra force to refactor in order to outsource and reuse logic
+
+# Outsourcing should be done when there is repetitive code that could be easily abstracted
+# Overdoing it could reduce readability and make maintainability harder.
