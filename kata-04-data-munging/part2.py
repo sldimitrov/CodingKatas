@@ -1,40 +1,30 @@
-# Read data
-f = open("football.dat")
-data = f.read()
+import utils
 
-# Split data into rows
-rows = data.split("\n")
+# Read and split data
+rows = utils.read_file("football.dat")
 
-formattedRows = []
+# Define data lists
 footballTeams = []
 footballTeamsStats = []
 
 for row in rows:
-    formatRow = row.strip().split(" ")
+    formattedRow = utils.format_rows(row)
+
+    if not formattedRow:
+        continue
 
     counter = 0
-    currentRowFormatted = []
+    currentRow = []
 
-    # Structure the data
-    for i, token in enumerate(formatRow):
-        if token != "":
-            # print(counter, repr(token))
-            currentRowFormatted.append(token)
-            counter += 1
+    if "team" in formattedRow[0].lower():
+        footballTeams.append(formattedRow)
+    else:
+        footballTeamsStats.append(formattedRow)
 
-    # TODO: Change the condition for real-world scenarios
-    if counter == 8:
-        print("The list of football teams: ", currentRowFormatted)
-        footballTeams.append(currentRowFormatted)
-
-    if counter == 10:
-        # print("Add the team of", currentRowFormatted[1])
-        footballTeamsStats.append(currentRowFormatted)
-
+# TODO: Outsource
 smallestRange = 999
 smallestRangeTeam = ""
 
-# Find the team with the smallest difference between F and A goals
 for teamStats in footballTeamsStats:
     try:
         goalsFor = int(teamStats[6])

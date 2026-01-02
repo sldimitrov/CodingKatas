@@ -1,15 +1,15 @@
+import utils
+
 def filter_columns(column):
     return column.strip()
 
-# Read
-f = open("weather.dat")
-data = f.read()
-
-# Split Lines
-columns = data.split("\n")
+# Read and split data
+rows = utils.read_file("weather.dat")
 
 # Filter valid rows
-lines = filter(filter_columns, columns)
+lines = filter(filter_columns, rows)
+
+print("lines", lines)
 
 computationLines = []
 
@@ -26,6 +26,7 @@ for (index, line) in enumerate(lines):
     except:
         print("Invalid input: cannot be converted")
 
+# TODO: Outsource
 lowestSpreadDay = ""
 lowestTempSpread = 999
 
