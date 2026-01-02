@@ -111,3 +111,5 @@ bf.add("dog")
 print(bf.contains("cat"))   # True
 print(bf.contains("dog"))   # True
 print(bf.contains("god"))   # ❗ Maybe True
+
+# TODO: Truly understand what is going on and exercise bit operations
