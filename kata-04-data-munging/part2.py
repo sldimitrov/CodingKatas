@@ -1,4 +1,6 @@
 import utils
+from utils import rangeTop as smallestRange
+from utils import resultValue as smallestRangeTeam
 
 # Read and split data
 rows = utils.read_file("football.dat")
@@ -21,11 +23,11 @@ for row in rows:
     else:
         footballTeamsStats.append(formattedRow)
 
-# TODO: Outsource
-smallestRange = 999
-smallestRangeTeam = ""
-
+# Optimise this part of the code
 for teamStats in footballTeamsStats:
+    if len(teamStats) < 10:
+        continue
+
     try:
         goalsFor = int(teamStats[6])
         goalsAgainst = int(teamStats[8])
@@ -38,5 +40,8 @@ for teamStats in footballTeamsStats:
     except Exception as X:
         print(X)
 
-print("The team with the smallest difference is - ", smallestRangeTeam)
-print("Range", smallestRange)
+# Result
+if smallestRangeTeam:
+    print(f"{smallestRangeTeam} has the smallest range of {smallestRange}")
+else:
+    print("There was an error trying to find the Team with the smallest range")

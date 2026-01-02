@@ -1,4 +1,6 @@
 import utils
+from utils import rangeTop as lowestTempSpread
+from utils import resultValue as lowestSpreadDay
 
 def filter_columns(column):
     return column.strip()
@@ -23,17 +25,15 @@ for (index, line) in enumerate(lines):
     try:
         tempSpread = int(maxTemp) - int(minTemp)
         computationLines.append([columnNumber, tempSpread])
-    except:
-        print("Invalid input: cannot be converted")
-
-# TODO: Outsource
-lowestSpreadDay = ""
-lowestTempSpread = 999
+    except Exception as X:
+        print("Invalid input: cannot be converted - ", X)
 
 for day in computationLines:
     if day[1] < lowestTempSpread:
         lowestSpreadDay = day[0]
         lowestTempSpread = day[1]
+
+print("lowestSpreadDay", lowestSpreadDay, "lowestTempSpread", lowestTempSpread)
 
 # Learning Results:
 # Refreshed knowledge around data types, map, filter, sort, slicing and more methods
